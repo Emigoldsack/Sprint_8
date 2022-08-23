@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from cliente.views import CustomerDetails, CustomerList
+from sucursal.views import BranchList 
+from cliente.views import CustomerDetails, CustomerList 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('itbank/customer/<int:pk>', CustomerDetails.as_view()),
-    path('itbank/customers', CustomerList.as_view())
+    path('itbank/customers', CustomerList.as_view()),
+    path('itbank/branch', BranchList.as_view())
 ]

@@ -1,9 +1,10 @@
 from rest_framework import serializers
-from .models import Cliente
+from .models import Sucursal
 
-class ClienteSerializer(serializers.ModelSerializer):
+class SucursalSerializer(serializers.ModelSerializer):
+ 
     class Meta:
-        model = Cliente
+        model = Sucursal
         fields = "__all__"
         read_only_fields = (
             "id",
