@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from HomeBanking.models import Cliente
+from .models import Cliente
 from .serializer import ClienteSerializer
 # Create your views here.
 

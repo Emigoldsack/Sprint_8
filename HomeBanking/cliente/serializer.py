@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from cliente.models import Cliente
+from .models import Cliente
 
 class ClienteSerializer(serializers.ModelSerializer):
     #id = serializers.IntegerField(read_only=True)

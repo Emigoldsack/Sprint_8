@@ -19,6 +19,6 @@ from cliente.views import CustomerDetails, CustomerList
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('itbank/customer/<int:pk>', CustomerDetails.as_view()),
+    path('itbank/customer/<int:pk>', CustomerDetails.as_view()),
     path('itbank/customers', CustomerList.as_view())
 ]
