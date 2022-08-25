@@ -1,8 +1,5 @@
 from django.db import models
-
-from Sprint_8.HomeBanking.cliente.models import Cliente
-from cliente.models import Cliente
-
+from sucursal.models import Sucursal
 # Create your models here.
 
 class Prestamo(models.Model):
@@ -10,7 +7,8 @@ class Prestamo(models.Model):
     loan_type = models.TextField()
     loan_date = models.TextField()
     loan_total = models.IntegerField()
-    customer_id = models.ForeignKey(Cliente, models.DO_NOTHING, blank=True, null=True)
+    customer_id = models.IntegerField()
+    branch = models.ForeignKey(Sucursal, models.DO_NOTHING, blank=True, null=True)
 
     class Meta:
         managed = False

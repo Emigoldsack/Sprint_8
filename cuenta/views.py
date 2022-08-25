@@ -9,8 +9,11 @@ from cliente.models import Cliente
 # Create your views here.
 
 class AccountBalance(APIView):
-    def get(self, request):
-        account = Cuenta.objects.all()
-        serializer = CuentaSerializer(account, many = True)
-        return Response(serializer.data, status = status.HTTP_200_OK)
+    def get(self, request,customer_id):
+        cuenta = Cuenta.objects.filter(customer_id=customer_id).first()
+        serializer = CuentaSerializer(cuenta)
+        if cuenta:
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        return Response(serializer.error_messages, status=status.HTTP_404_NOT_FOUND)
       

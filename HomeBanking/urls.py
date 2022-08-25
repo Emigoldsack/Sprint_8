@@ -16,13 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from cuenta.views import AccountBalance
+from prestamo.views import CreateLoan, Loan
 from sucursal.views import BranchList 
-from cliente.views import CustomerDetails, CustomerList 
+from cliente.views import CustomerDetails, CustomerList
+from tarjeta.views import TarjetasCliente 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('itbank/customer/<int:pk>', CustomerDetails.as_view()),
     path('itbank/customers', CustomerList.as_view()),
     path('itbank/branch', BranchList.as_view()),
-    path('itbank/account', AccountBalance.as_view())
+    path('itbank/account/<int:customer_id>', AccountBalance.as_view()),
+    path('itbank/loan/<int:customer_id>', Loan.as_view()),
+    path('itbank/card/<int:customer_id>', TarjetasCliente.as_view()),
+    path('itbank/loan', CreateLoan.as_view()),
 ]

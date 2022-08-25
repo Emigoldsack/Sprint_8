@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'cliente',
     'sucursal',
     'cuenta',
+    'prestamo',
+    'tarjeta',
     
 ]
 

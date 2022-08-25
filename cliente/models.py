@@ -8,7 +8,7 @@ class Cliente(models.Model):
     customer_surname = models.TextField()  # This field type is a guess.
     customer_dni = models.TextField(db_column='customer_DNI', unique=True)  # Field name made lowercase.
     dob = models.TextField(blank=True, null=True)
-    branch_id = models.ForeignKey(Sucursal, models.DO_NOTHING, blank=True, null=True)
+    branch_id = models.IntegerField()
     direccion = models.ForeignKey(Direcciones, models.DO_NOTHING, blank=True, null=True)
 
     class Meta:
