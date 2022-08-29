@@ -15,10 +15,9 @@ from cuenta.models import Cuenta
 class TarjetasCliente(APIView):
     permission_classes = [permissions.IsAuthenticated]
     def get(self, request,customer_id):
-        account_id = Cuenta.objects.filter(customer_id=customer_id).first() ## PREGUNTAR A NICO
-        tarjeta = Tarjetas.objects.filter(account_id=account_id).values()
-        serializer = TarjetaSerializer(tarjeta)
+        account_id = Cuenta.objects.filter(customer_id=customer_id).first()
+        tarjeta = Tarjetas.objects.filter(account_id=account_id)
+        serializer = TarjetaSerializer(tarjeta, many=True)
         if tarjeta:
             return Response(serializer.data, status=status.HTTP_200_OK)
-
         return Response(serializer.error_messages, status=status.HTTP_404_NOT_FOUND)

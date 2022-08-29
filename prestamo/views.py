@@ -40,7 +40,6 @@ class CreateLoan(APIView): ## CREA UN PRESTAMO
 
 class BranchLoan(APIView): ## TRAE LOS PRESTAMOS DE UN SUCURSAL
     permission_classes = [permissions.IsAuthenticated]
-    
     def get(self, request,branch_id):
         brachloan = Prestamo.objects.filter(branch_id=branch_id).first()
         serializer = PrestamoSerializer(brachloan)
