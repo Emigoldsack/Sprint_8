@@ -13,6 +13,8 @@ from cuenta.models import Cuenta
 # Create your views here.
 
 class Loan(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+    
     def get(self, request,customer_id): ## TRAE EL PRESTAMO DE UN CLIENTE
         prestamo = Prestamo.objects.filter(customer_id=customer_id).first()
         serializer = PrestamoSerializer(prestamo)
